@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> //string 쓰려면 추가해줘야돼 
+#include <string.h>
 //실습 13 : 구조체 
-//1. 구조체 정의 및 활용 
-
-//학번, 이름 학점 멤버 정의 
-struct student{
-       int ID;
-       char name[20];
-       double grade;
+//2. 구조체 연산 
+struct point{
+       int x;
+       int y;
        };
 
 int main(int argc, char *argv[])
 {
-    //변수 선언, 적절한 값으로 초기화
-    struct student stud = {10, "hwanhee", 4.3};
-    struct student *stdPtr;
+    struct point p1, p2;
     
-    stdPtr = &stud;
+    int xdiff, ydiff;
+    double dist;
     
-    //학번, 이름, 학점 다른 값으로 변경 
-    stdPtr->ID = 23;
-    strcpy(stdPtr->name, "HONG");
-    stdPtr->grade = 2.0; 
+    printf("input p1 coordinate (x,y): ");
+    scanf("%d %d", &p1.x, &p1.y);
     
-    //학번, 이름, 학점 각각 출력 
-    printf("ID : %d, name: %s, grade : %lf\n", stdPtr->ID, stdPtr->name, stdPtr->grade);
+    printf("input p2 coordinate (x,y): ");
+    scanf("%d %d", &p2.x, &p2.y);
+    
+    //p1, p2간 거리를 계산 (sprt() 함수 활용)
+    xdiff = p1.x - p2.x;
+    ydiff = p1.y - p2.y;
+    dist = sqrt(xdiff*xdiff + ydiff*ydiff);
+    
+    printf("distance: %lf\n", dist);
   
   system("PAUSE");	
   return 0;
